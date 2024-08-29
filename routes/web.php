@@ -29,7 +29,6 @@ Route::get('/categories/{category:slug}', function (Category $category) {
 });
 
 
-
 Route::get('/about', function () {
     return view('about', ['name' => 'Alif Rizz', 'title' => 'About page']);
 });
