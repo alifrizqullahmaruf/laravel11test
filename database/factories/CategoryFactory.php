@@ -17,10 +17,26 @@ class CategoryFactory extends Factory
      */
     public function definition(): array
     {
+        // Hubungan antara kategori dan warna
+        $categoryColors = [
+            'Web Design' => 'red',
+            'UI & UX' => 'blue',
+            'Graphic Design' => 'green',
+            'Mobile App Development' => 'purple',
+            'Software Engineering' => 'yellow'
+        ];
+
+        // Pilih kategori secara acak
+        $selectedCategory = $this->faker->randomElement(array_keys($categoryColors));
+
+        // Ambil warna yang sesuai
+        $selectedColor = $categoryColors[$selectedCategory];
+        
         return [
-            "name" => fake()->sentence(rand(1, 2), false),
-            "slug" => Str::slug(fake()->sentence(rand(1, 2), false)),
-            "description" => fake()->paragraph(),
+            'name' => $selectedCategory,
+            'slug' => Str::slug($this->faker->sentence(rand(1, 2), false)),
+            'description' => $this->faker->paragraph(),
+            'color' => $selectedColor,
         ];
     }
 }

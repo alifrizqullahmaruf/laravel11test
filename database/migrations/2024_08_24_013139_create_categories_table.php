@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 100); // Nama kategori, misal: "Teknologi", "Lifestyle"
             $table->string('slug')->unique(); // Slug untuk URL kategori
             $table->text('description')->nullable(); // Deskripsi kategori (opsional)
+            $table->string('color', 100); // Nama kategori, misal: "Teknologi", "Lifestyle"
             $table->timestamps();
         });
     }
